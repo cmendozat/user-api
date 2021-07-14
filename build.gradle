@@ -28,6 +28,8 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.2'
+	implementation 'junit:junit:4.12'
+	testImplementation group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
 }
 
 test {
