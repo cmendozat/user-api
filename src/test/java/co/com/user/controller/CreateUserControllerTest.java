@@ -46,7 +46,7 @@ public class CreateUserControllerTest {
        User userResponse = User.builder().email("carlos.jose0294@gmail.com")
                 .name("Carlos").password("123456").phones(Collections.singletonList(Phone.builder().citycode("5")
                         .contrycode("57").number("3554486234").build()))
-               .id("51dfsd55sdsa5dfhj5").isActive(true).build();
+               .id(1).isActive(true).build();
 
         when(createUserService.createNewUser(user))
                 .thenReturn(userResponse);

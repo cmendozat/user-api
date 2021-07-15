@@ -1,6 +1,7 @@
 package co.com.user.filter;
 
 import co.com.user.model.exceptions.SupportedException;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -29,7 +30,9 @@ public class ExceptionInterceptor {
     {
         Map<Object, Object> map = new HashMap<>();
         if(supportedExceptionOptional.isPresent()){
-            map.put("mensaje", throwable.getMessage());
+            map.put("mensaje", Strings.isEmpty(throwable.getMessage()) ?
+                    supportedExceptionOptional.get().getExceptionClass().getName()
+                    : throwable.getMessage());
             return new ResponseEntity<>(map, supportedExceptionOptional.get().getStatus());
         }
 
